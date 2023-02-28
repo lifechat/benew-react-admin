@@ -1,0 +1,30 @@
+{
+    "name": "fh5-test",
+    "cwd": "./",
+    "args": [],
+    "script": "./server.js",
+    "kill_timeout": 15000,
+    "listen_timeout": 15000,
+    "wait_ready": true,
+    "node_args": [],
+    "log_date_format": "MM-DD HH:mm:ss.SSS Z",
+    "error_file": "./log/stderr.log",
+    "out_file": "./log/stdout.log",
+    "merge_logs": true,
+    "pid_file": "./log/std.pid",
+    "exec_interpreter": "node",
+    "exec_mode": "cluster",
+    "instances": 1,
+    "min_uptime": "200s",
+    "autorestart": true,
+    "max_restarts": 30,
+    "max_memory_restart": "2G",
+    "watch": false,
+    "ignore_watch": ["[\\/\\\\]\\./", "node_modules"],
+    "vizion": true,
+    "env": {
+      "NODE_ENV": "production",
+      "PORT": 9995
+    }
+  }
+  
