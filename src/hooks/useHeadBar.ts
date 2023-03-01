@@ -4,7 +4,7 @@ interface Iprops {
   title: string;
 }
 
-const useHeadBar = (args: Iprops) => {
+const useHeadTitle = (args: Iprops) => {
   const { title } = args;
   useEffect(() => {
     document.title = title;
@@ -14,4 +14,4 @@ const useHeadBar = (args: Iprops) => {
 };
 
 
-export default useHeadBar;
+export default useHeadTitle;

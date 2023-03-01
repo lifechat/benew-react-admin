@@ -83,3 +83,24 @@ export const throttle = (fn:any,wait=0) => {
       }
     }
 }
+
+/**
+ *  获取url参数
+ */
+export const getUrlParams = (url?:string):any => {
+  if(!url){
+    url = window.location.href;
+  }
+
+  return (url.match(/([^?=&]+)(=([^&]*))/g) || [] as any).reduce(
+    (a:any,v:any) => ((a[v.slice(0,v.indexOf('='))] = v.slice(v.indexOf('=')+1)),a),
+    {}
+  )
+}
+
+/**
+ *  获取包裹组件的名称
+ */
+export const getDisplayName = (Component:any) => {
+  return Component.displayName ||  Component.name || 'Unknown';
+}

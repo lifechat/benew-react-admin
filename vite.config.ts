@@ -73,7 +73,14 @@ export default ({ command }: ConfigEnv): UserConfigExport => {
     //   },
     // },
     plugins: [
-      react(),
+      react({
+        babel:{
+          plugins:[
+            ["@babel/plugin-proposal-decorators", { legacy: true }],
+            ["@babel/plugin-proposal-class-properties", { loose: true }]
+          ]
+        }
+      }),
       vitePluginMomentToDayjs(), // dayjs
       vitePluginImp({
         libList: [

@@ -1,60 +1,79 @@
-import NttCheckBox from "../../components/ntt-checkbox";
-import React, { useState } from "react";
-/** redux **/
-import { Provider } from 'react-redux'
-import { Radio,Button,Checkbox} from 'antd-mobile'
-import {NttcountDown} from '../../components/ntt-countdown'
+import React, { Component } from "react";
 import classnames from 'classnames/bind'
 import styles from './index.module.scss'
+import base from "@/hooks/base";
+import { Button, Space } from 'antd';
 
 const cx = classnames.bind(styles)
 
-import useHeadBar from "../../hooks/useHeadBar";
-import { Counter } from "../../components/Counter";
+@base({ title:"天天吃货-首页" })
+class Home extends Component<any,any>{
 
-import {GetCounter} from '../../components/GetCounter'
-
-export default function index() {
-  const handleClick = () => {
-    //发送事件
-    window.mitt.emit('foo',{name:'jack'})
+  constructor(props:any){
+    super(props);
   }
 
-  const testPostFormData = () => {
-    
+  componentDidMount(): void {
+      
   }
 
-  // 1674662399000
+  render(){
+    return (
+      <div>首页
+          <Button type="primary">Button</Button>
+      </div>
+    )
+  }
+}
+// export default function index(props:any) {
+//   const handleClick = () => {
+//     //发送事件
+//     window.mitt.emit('foo',{name:'jack'})
+//   }
 
-  
-  testPostFormData();
-  
-  return <div>
-    {/* <NttCheckBox /> */}
-    {/* <Button color='primary' fill='solid' onClick={() => handleClick()}>mitt传参数</Button> */}
-    <Home />
-    <Counter />
-    <GetCounter />
-    <Checkbox value={111}/>
-    <Radio />
-
-    <NttcountDown  countParams="111" />
+//   const testPostFormData = () => {
     
-  </div>;
-}
+//   }
 
-interface initailState {
- [key:string]:any
-}
+//   useEffect(() => {
+//       console.log(getUrlParams())
+      
+//   }, []);
+   
+//   // 1674662399000
 
-function Home(){
-  const [state, setstate] = useState<initailState>({})
-  window.mitt.on('foo', (obj:initailState) => setstate(obj)) // 监听参数
+  
+//   testPostFormData();
+  
+//   return <div>
+//     {/* <NttCheckBox /> */}
+//     {/* <Button color='primary' fill='solid' onClick={() => handleClick()}>mitt传参数</Button> */}
+//     {/* <Home />
+//     <Counter />
+//     <GetCounter />
+//     <Checkbox value={111}/>
+//     <Radio />
 
-  return (
-    <>
-    <div className={cx('entry')}>{state.name}</div>
-    </>
-  )
-}
+//     <NttcountDown  countParams="111" /> */}
+//       <div>首页</div>
+//   </div>;
+// }
+
+// interface initailState {
+//  [key:string]:any
+// }
+
+// function Home(){
+//   const [state, setstate] = useState<initailState>({})
+//   window.mitt.on('foo', (obj:initailState) => setstate(obj)) // 监听参数
+
+//   return (
+//     <>
+//     <div className={cx('entry')}>{state.name}</div>
+//     </>
+//   )
+// }
+
+
+export default Home;
 

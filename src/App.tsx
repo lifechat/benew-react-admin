@@ -8,10 +8,8 @@ import useHeadBar from './hooks/useHeadBar'
 import { Routers } from './route/index'
 import { useSelector,useDispatch } from 'react-redux'
 import { RootState } from './store'
-import { changeIncrementAmount } from './store/reducers/counterReducer'
-import { Counter } from './components/Counter'
 import EventEmitt from './utils/event'
-
+import 'antd/dist/reset.css';
 import dayjs from 'dayjs'
 import 'dayjs/locale/zh-cn';
 
@@ -20,8 +18,6 @@ import 'dayjs/locale/zh-cn';
 dayjs.locale('zh-cn');
 
 const App:React.FC = () =>{
-
-
   useEffect(() => {
     const mitt = EventEmitt();
     window.mitt = mitt;

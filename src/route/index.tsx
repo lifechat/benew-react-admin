@@ -6,7 +6,7 @@ import { unstable_HistoryRouter as HistoryRouter, useParams, useRoutes, useLocat
 
 import {createBrowserHistory} from 'history'
 
-import SpinLoading from 'antd-mobile/es/components/spin-loading'
+import { Spin } from 'antd';
 
 /**
  *  路由配置
@@ -48,7 +48,6 @@ const routeConfig = [
         path:'/dzScreen',
         component:lazy(() => import('../pages/ScreenDz/index')),
         pageName:'DzGame'
-
     }
 ]
 
@@ -71,7 +70,7 @@ const RouterParamsProvider = (props:any) => {
 const Loading = ():React.ReactNode => {
     return (
         <div style={{display:'flex',flexDirection:'column',alignItems:'center',height:'100vh',width:'100%',justifyContent:'center'}}>
-            <SpinLoading color='primary' />
+            <Spin tip="Loading" size="large" />
         </div>
     )
 }
