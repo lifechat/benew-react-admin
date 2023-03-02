@@ -2,7 +2,7 @@
 import mockJs from 'mockjs'
 import { pathToRegexp } from 'path-to-regexp'
 
-const Mock = mockJs
+const Mock:any = mockJs
 export function createProdMockServer(mockList:any) {
   Mock.XHR.prototype.__send = Mock.XHR.prototype.send
   Mock.XHR.prototype.send = function () {

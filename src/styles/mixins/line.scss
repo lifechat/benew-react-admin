@@ -1,0 +1,15 @@
+/*
+* 行数超过3行自动转成省略号
+*/
+@mixin line($num:1){
+    overflow: hidden;
+    text-overflow: ellipsis;
+    @if($num ==1){
+        white-space: nowrap;
+    }@else{
+        display: -webkit-box;
+        -webkit-line-clamp: $num;
+        /*! autoprefixer: ignore next */
+        -webkit-box-orient: vertical;
+    }
+}

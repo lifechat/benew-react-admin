@@ -31,5 +31,3 @@ interface Window{
 }
 
 
-declare module 'cesium-react'
-

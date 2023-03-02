@@ -35,7 +35,7 @@ const Axios = axios.create({
 export function request({loadingOption = {},...options}:RequestConfig):Promise<RequestResponse>{
 
     if(loadingOption.show){
-        
+
     }
 
     return new Promise((resolve,reject)=>{
@@ -50,7 +50,10 @@ export function request({loadingOption = {},...options}:RequestConfig):Promise<R
 }
 
 export const  HTTP_STATUS = {
-
+    SUCCESS: 200,
+    AUTHENTICATE: 401,
+    FORBIDDEN: 403,
+    NOTFOUND:404
 }
 
 // 请求拦截器
@@ -58,3 +61,9 @@ Axios.interceptors.request.use();
 
 // 响应拦截器
 Axios.interceptors.response.use()
+
+
+// 创建多个请求
+export function anotherRequest(options:RequestConfig){
+    return request({ baseURL: appConfig.baseUrl, skipHandleResult: true, ...options })
+}

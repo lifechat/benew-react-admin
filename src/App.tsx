@@ -17,6 +17,9 @@ import 'dayjs/locale/zh-cn';
 //设置语言
 dayjs.locale('zh-cn');
 
+
+console.log(process)
+
 const App:React.FC = () =>{
   useEffect(() => {
     const mitt = EventEmitt();
