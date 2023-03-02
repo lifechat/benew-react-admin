@@ -3,6 +3,7 @@ import classnames from 'classnames/bind'
 import styles from './index.module.scss'
 import base from "@/hooks/base";
 import { Button, Space } from 'antd';
+import { requestRegister } from "@/api/login";
 
 const cx = classnames.bind(styles)
 
@@ -14,7 +15,24 @@ class Home extends Component<any,any>{
   }
 
   componentDidMount(): void {
-      
+      this.getRegisterInfo();
+  }
+
+  async getRegisterInfo(){
+     const data = 
+      {
+        "username":"lifechat",
+        "password":"lifechat",
+        "confirmPassword":"lifechat"	
+     }
+
+     try {
+       const res = await requestRegister(data);
+       console.log(res);
+     } catch (error) {
+
+     }
+
   }
 
   render(){

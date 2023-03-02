@@ -18,8 +18,6 @@ import 'dayjs/locale/zh-cn';
 dayjs.locale('zh-cn');
 
 
-console.log(process)
-
 const App:React.FC = () =>{
   useEffect(() => {
     const mitt = EventEmitt();

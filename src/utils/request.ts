@@ -42,6 +42,7 @@ export function request({loadingOption = {},...options}:RequestConfig):Promise<R
         Axios(options)
         .then((res)=>{
             // if(LoadingOption.show)
+            console.log(res)
             resolve(res.data)
         }).catch((err)=>{
             reject(err);
@@ -57,10 +58,34 @@ export const  HTTP_STATUS = {
 }
 
 // 请求拦截器
-Axios.interceptors.request.use();
+Axios.interceptors.request.use(
+    (config) => {
+        // const 
+        return config;
+    },
+    (error) => {
+        return Promise.reject(error)
+    }
+);
 
 // 响应拦截器
-Axios.interceptors.response.use()
+Axios.interceptors.response.use(
+    (response) => {
+        const {data = {},config} = response;
+
+
+        return config;
+    },
+    (error) => {
+        const {response = {},config} = error;
+        const {status,data={}} = response;
+        // 未登录或者登录失效
+
+        //统一报错信息字段为message
+        error.message = data.message || data.msg || data.detail || '请求出错，请稍后再试'
+        return Promise.reject(error)
+    }
+)
 
 
 // 创建多个请求

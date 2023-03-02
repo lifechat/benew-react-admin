@@ -29,5 +29,3 @@ interface Window{
     mitt:any // 事件派发总线
 
 }
-
-
