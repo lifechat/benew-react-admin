@@ -25,7 +25,7 @@ export default ({ command }: ConfigEnv): UserConfigExport => {
     // 本地服务搭建
     server: {
       host: "0.0.0.0",
-      open:true
+      // open:true
     },
     css: {
       // 移动端适配方案

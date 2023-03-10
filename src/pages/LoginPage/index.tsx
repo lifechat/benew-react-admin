@@ -4,7 +4,7 @@ import React, { Component } from "react";
 
 
 // useHeadBar({title:"天天吃货 - 注册"});
-class Register extends Component<any, any> {
+class Login extends Component<any, any> {
   constructor(props: any) {
     super(props);
   }
@@ -16,4 +16,4 @@ class Register extends Component<any, any> {
   }
 }
 
-export default Register;
+export default Login;

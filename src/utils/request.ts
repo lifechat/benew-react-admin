@@ -42,7 +42,6 @@ export function request({loadingOption = {},...options}:RequestConfig):Promise<R
         Axios(options)
         .then((res)=>{
             // if(LoadingOption.show)
-            console.log(res)
             resolve(res.data)
         }).catch((err)=>{
             reject(err);
@@ -73,8 +72,7 @@ Axios.interceptors.response.use(
     (response) => {
         const {data = {},config} = response;
 
-
-        return config;
+        return response;
     },
     (error) => {
         const {response = {},config} = error;

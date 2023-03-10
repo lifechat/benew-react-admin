@@ -2,7 +2,7 @@
 
 import React,{Suspense,lazy} from 'react'
 
-import { unstable_HistoryRouter as HistoryRouter, useParams, useRoutes, useLocation } from 'react-router-dom'
+import { HashRouter , useParams, useRoutes, useLocation } from 'react-router-dom'
 
 import {createBrowserHistory} from 'history'
 
@@ -19,25 +19,13 @@ const routeConfig = [
     },
     {
         path:'/register',
-        component:lazy(() => import('../pages/ScreenRegister')),
+        component:lazy(() => import('../pages/ScreenHome')),
         pageName:'register'
     },
     {
         path:'/openScreen/:id',
         component:lazy(()=> import('../pages/ScreenOpenning')),
         pageName:'Screen'
-    },
-    // cesium
-    {
-        path:'/cesiumScreen',
-        component:lazy(()=> import('../pages/ScreenCesium')),
-        pageName:'Cesium'
-    },
-    // three.js
-    {
-        path:'/threeScreen',
-        component:lazy(()=> import('../pages/ScreenThree')),
-        pageName:'three'
     },
     {
         path:'/inviteScreen',
@@ -48,7 +36,8 @@ const routeConfig = [
         path:'/dzScreen',
         component:lazy(() => import('../pages/ScreenDz/index')),
         pageName:'DzGame'
-    }
+    },
+    { path: '*', component: lazy(() => import('../pages/NotFoundPage')), pageName: 'NotFound' },
 ]
 
 // 路由参数分发
@@ -102,9 +91,9 @@ const Routers = () => {
     const Routes = () => useRoutes(handleRoutesConfig(routeConfig))
 
     return (
-        <HistoryRouter history={history} >
+        <HashRouter  >
              <Routes />
-        </HistoryRouter>
+        </HashRouter>
     )
 }
 

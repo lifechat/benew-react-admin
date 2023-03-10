@@ -104,3 +104,13 @@ export const getUrlParams = (url?:string):any => {
 export const getDisplayName = (Component:any) => {
   return Component.displayName ||  Component.name || 'Unknown';
 }
+
+
+// 回调
+const selectAll = (par1:number,par2:number,callback:Function) => {
+  return callback
+}
+
+const callback = (par1:number,par2:number) =>{
+  return par1 + par2;
+}
